@@ -1,0 +1,6 @@
+models/vosk/vosk-model-small-en-us-0.15.zip
+models/vosk/vosk-model-small-es-0.42.zip
+models/vosk/vosk-model-small-fr-0.22.zip
+static/avatar.mov
+static/avatar.mp4
+templates/ai_avatar.mp4
