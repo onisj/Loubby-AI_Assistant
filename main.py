@@ -28,7 +28,7 @@ from aiortc import RTCPeerConnection, RTCSessionDescription, AudioStreamTrack
 logging.basicConfig(level=logging.INFO, filename="logs/app.log", filemode="a", format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
-# Ensure directories exist
+
 os.makedirs("logs", exist_ok=True)
 os.makedirs("responses", exist_ok=True)
 os.makedirs("static", exist_ok=True)
@@ -104,7 +104,7 @@ def generate_feedback_summary(limit=5):
             summaries.append(f"Praise: '{comment}' (rating: {rating})")
     return "Recent feedback: " + "; ".join(summaries) if summaries else "No recent feedback available."
 
-# Update chunk ratings
+#chunk ratings
 def update_chunk_ratings(query: str, rating: int):
     query_embedding = embedding_model.encode([query])[0]
     search_results = index.query(vector=query_embedding.tolist(), top_k=3, include_metadata=True, namespace="loubby")
@@ -125,7 +125,7 @@ async def chat(request: Request, chat_request: ChatRequest):
 
         query_lang = chat_request.lang if chat_request.lang != "auto" else detect(query)
         if query_lang != 'en':
-            query = query  # Translation handled below if needed
+            query = query  
 
         query_embedding = embedding_model.encode([query])[0]
         search_results = index.query(vector=query_embedding.tolist(), top_k=3, include_metadata=True, namespace="loubby")
@@ -215,7 +215,7 @@ async def offer(request: Request):
 
                     query_lang = detect(query)
                     if query_lang != 'en':
-                        query = query  # Translation handled below if needed
+                        query = query 
 
                     query_embedding = embedding_model.encode([query])[0]
                     search_results = index.query(vector=query_embedding.tolist(), top_k=3, include_metadata=True, namespace="loubby")
@@ -271,8 +271,8 @@ async def websocket_handler(websocket: WebSocket):
         while True:
             data = await websocket.receive_text()
             logger.info(f"Received WebSocket message: {data}")
-            # Handle WebSocket messages if needed (e.g., ICE candidates)
-            await websocket.send_text("Echo: " + data)  # Placeholder response
+            # Handle WebSocket messages if needed
+            await websocket.send_text("Echo: " + data)  
     except Exception as e:
         logger.error(f"WebSocket error: {str(e)}")
     finally:
