@@ -1,0 +1,281 @@
+2025-03-05 15:09:45,162 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 15:09:45,162 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 15:19:03,890 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 15:19:03,891 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 15:40:25,111 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 15:40:25,113 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 15:55:06,330 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 15:55:06,332 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 16:11:48,339 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 16:11:48,340 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 16:18:53,804 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 16:18:53,805 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 16:58:07,020 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 16:58:07,021 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 17:07:49,920 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 17:07:49,922 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 17:15:08,393 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 17:15:08,395 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 17:30:53,859 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 17:30:53,860 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 17:32:04,655 - __main__ - INFO - Received query: how do i navigate the loubby platform?
+2025-03-05 17:32:08,123 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-05 17:32:08,134 - __main__ - INFO - Generated response: To navigate the Loubby platform, follow these steps:
+
+1. Go to the Loubby Recruitment Portal by visiting [loubby.ai/recruitment](https://loubby.ai/recruitment) in your web browser.
+2. If you haven't already, create your account by clicking the "Sign Up" button in the top right corner, then enter your email address and create a password.
+3. Once logged in, you'll be taken to the dashboard. To set up your profile, navigate to "Profile Setup" and follow the instructions.
+4. To connect external courses to the Loubby platform, go to "Education &
+2025-03-05 17:42:15,764 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 17:42:15,766 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 17:44:22,568 - __main__ - ERROR - Voice error: Could not find PyAudio; check installation
+2025-03-05 17:44:55,891 - __main__ - INFO - Received query: what is loubby?
+2025-03-05 17:45:00,345 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-05 17:45:00,355 - __main__ - INFO - Generated response: Loubby is a recruitment portal that can be accessed through a web browser or a mobile app. To create an account, you need to navigate to the Loubby recruitment portal website, click the "Sign Up" button, and enter your email address and create a password. After accepting a job offer, you'll receive an email with login credentials for the employee portal. Loubby provides notifications for interview alerts and may prompt you to set up two-factor authentication for added security.
+2025-03-05 17:45:43,528 - __main__ - INFO - Received query: what is loubby?
+2025-03-05 17:45:44,430 - __main__ - ERROR - Error: 404 (Not Found) from TTS API. Probable cause: Unknown
+2025-03-05 17:50:32,060 - __main__ - INFO - Received query: what is loubby?
+2025-03-05 17:50:32,761 - __main__ - ERROR - Error: 404 (Not Found) from TTS API. Probable cause: Unknown
+2025-03-05 17:59:57,655 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 17:59:57,656 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 18:02:31,135 - __main__ - INFO - Received query: what is loubby
+2025-03-05 18:02:32,467 - __main__ - ERROR - Error: 404 (Not Found) from TTS API. Probable cause: Unknown
+2025-03-05 18:58:08,936 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 18:58:08,937 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 19:03:37,411 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 19:03:37,412 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 19:08:10,312 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 19:08:10,314 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 19:10:57,091 - __main__ - INFO - Received query: what is loubby?
+2025-03-05 19:11:19,246 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-05 19:11:19,260 - __main__ - INFO - Generated response: Loubby is a recruitment portal that provides a platform for job seekers to create an account, search and apply for jobs. Once a job offer is accepted, Loubby also offers an employee portal for employees to access. Loubby can be accessed on mobile devices through a responsive web version or a mobile app available for download on the App Store or Google Play.
+2025-03-05 19:17:48,150 - __main__ - INFO - Received query: what is loubby?
+2025-03-05 19:17:51,079 - __main__ - ERROR - Error: 404 (Not Found) from TTS API. Probable cause: Unknown
+2025-03-05 19:52:11,225 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 19:52:11,227 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 19:54:14,123 - __main__ - INFO - Received query: what is loubby?
+2025-03-05 19:54:25,908 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-05 19:54:25,924 - __main__ - INFO - Generated response: Loubby is a recruitment platform that offers a web version and a mobile app for job seekers to create accounts and apply for jobs. After accepting a job offer, users receive login credentials for the Loubby employee portal. The platform also provides interview alerts and may require two-factor authentication.
+2025-03-05 19:58:25,496 - __main__ - INFO - Received query: what is loubby?
+2025-03-05 19:58:26,631 - __main__ - ERROR - Error: 404 (Not Found) from TTS API. Probable cause: Unknown
+2025-03-05 20:09:34,113 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 20:09:34,114 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 20:11:06,224 - __main__ - INFO - Received query: what is loubby
+2025-03-05 20:11:11,512 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-05 20:11:14,427 - __main__ - ERROR - Error: 403 Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "texttospeech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Text-to-Speech API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-05 20:46:45,301 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 20:46:45,303 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 21:10:12,331 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 21:10:12,335 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 21:19:49,927 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 21:19:49,928 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 21:22:45,305 - __main__ - INFO - WebSocket connection established
+2025-03-05 21:22:55,015 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 8346741409416702918 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS 0e9f8a80-d977-44f7-97ca-e29728859149\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:cgSv\r\na=ice-pwd:+7apudmYcBqrXjyEDcauumWe\r\na=ice-options:trickle\r\na=fingerprint:sha-256 FA:36:3C:D6:EC:2D:74:F0:6D:A9:0B:27:A7:35:92:C7:CE:BC:9C:B9:8E:CE:E2:32:39:5A:77:13:0C:AE:29:6D\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:0e9f8a80-d977-44f7-97ca-e29728859149 6df02159-8e52-450a-bd25-6881a33ea516\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:1483963869 cname:pQr+IGU0azh9yvi9\r\na=ssrc:1483963869 msid:0e9f8a80-d977-44f7-97ca-e29728859149 6df02159-8e52-450a-bd25-6881a33ea516\r\n","type":"offer"}
+2025-03-05 21:23:07,097 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-05 21:23:07,501 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:3455332841 1 udp 2113937151 cb61aefb-e328-47a7-a08d-ca68f12f864e.local 59917 typ host generation 0 ufrag cgSv network-cost 999","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"cgSv"}}
+2025-03-05 21:23:07,608 - __main__ - INFO - Connection state: connecting
+2025-03-05 21:23:07,681 - aioice.ice - INFO - Connection(0) Discovered peer reflexive candidate Candidate(Vwx6WYiE6e 1 udp 1845501695 172.20.10.3 59917 typ prflx)
+2025-03-05 21:23:07,686 - aioice.ice - INFO - Connection(0) Check CandidatePair(('172.20.10.3', 54947) -> ('172.20.10.3', 59917)) State.WAITING -> State.IN_PROGRESS
+2025-03-05 21:23:07,805 - aioice.ice - INFO - Connection(0) Check CandidatePair(('172.20.10.3', 54947) -> ('172.20.10.3', 59917)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-05 21:23:07,805 - aioice.ice - INFO - Connection(0) ICE completed
+2025-03-05 21:23:08,308 - __main__ - INFO - Connection state: connected
+2025-03-05 21:25:14,345 - __main__ - ERROR - WebSocket error: (1001, None)
+2025-03-05 21:25:14,348 - __main__ - INFO - WebSocket connection closed
+2025-03-05 21:25:14,355 - __main__ - INFO - WebSocket connection established
+2025-03-05 21:25:14,373 - __main__ - INFO - Connection state: closed
+2025-03-05 21:25:16,750 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 7429866295097408564 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS 9781c045-1d37-4bca-bbe6-5b946812fd61\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:fGFD\r\na=ice-pwd:4TNNlSjrnkHM5NkVv00KEICD\r\na=ice-options:trickle\r\na=fingerprint:sha-256 25:0D:3A:A4:24:CF:4A:82:DE:55:5D:2A:CA:40:E0:0E:31:B6:37:C6:CE:29:53:5A:38:EE:2F:B2:66:77:F3:29\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:9781c045-1d37-4bca-bbe6-5b946812fd61 784975a8-4b35-4b0e-97b5-61d50f1bd181\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:1181546087 cname:HVRF0ToF/Nm89/Zo\r\na=ssrc:1181546087 msid:9781c045-1d37-4bca-bbe6-5b946812fd61 784975a8-4b35-4b0e-97b5-61d50f1bd181\r\n","type":"offer"}
+2025-03-05 21:25:18,161 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-05 21:25:18,460 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:1280133297 1 udp 2122260223 172.20.10.3 63576 typ host generation 0 ufrag fGFD network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"fGFD"}}
+2025-03-05 21:25:18,466 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:847424041 1 tcp 1518280447 172.20.10.3 9 typ host tcptype active generation 0 ufrag fGFD network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"fGFD"}}
+2025-03-05 21:25:19,566 - __main__ - INFO - Connection state: connecting
+2025-03-05 21:25:19,570 - aioice.ice - INFO - Connection(1) Discovered peer reflexive candidate Candidate(FpH4JXPe3b 1 udp 1853824767 172.20.10.3 63576 typ prflx)
+2025-03-05 21:25:19,571 - aioice.ice - INFO - Connection(1) Check CandidatePair(('172.20.10.3', 60701) -> ('172.20.10.3', 63576)) State.WAITING -> State.IN_PROGRESS
+2025-03-05 21:25:19,573 - aioice.ice - INFO - Connection(1) Check CandidatePair(('172.20.10.3', 60701) -> ('172.20.10.3', 63576)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-05 21:25:19,573 - aioice.ice - INFO - Connection(1) ICE completed
+2025-03-05 21:25:19,625 - __main__ - INFO - Connection state: connected
+2025-03-05 21:26:37,098 - __main__ - INFO - Received query: what is loubby
+2025-03-05 21:26:49,626 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-05 21:26:49,667 - __main__ - INFO - Generated response: Loubby is a recruitment portal that can be accessed through a web browser or a mobile app. To create an account, you need to navigate to [loubby.ai/recruitment](https://loubby.ai/recruitment), click the "Sign Up" button, and enter your email address and create a password. After accepting a job offer, you will receive an email with login credentials for the employee portal, which can be accessed at [loubby.ai/employee](https://loubby.ai/employee). Loubby also offers two-factor authentication for added security.
+2025-03-05 21:57:51,461 - __main__ - INFO - Received query: what is loubby
+2025-03-05 21:58:12,968 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-05 21:58:16,464 - __main__ - ERROR - Error: 403 Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "texttospeech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Text-to-Speech API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-05 22:06:36,776 - __main__ - INFO - Received query: comment puis-je m'inscrire sur loubby
+2025-03-05 22:06:47,357 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-05 22:06:48,531 - __main__ - ERROR - Error: 403 Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "texttospeech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Text-to-Speech API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-05 22:06:58,007 - __main__ - INFO - Received query: comment puis-je m'inscrire sur loubby
+2025-03-05 22:06:59,586 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-05 22:07:00,376 - __main__ - ERROR - Error: 403 Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "texttospeech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Text-to-Speech API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-05 22:07:11,391 - __main__ - INFO - Received query: comment puis-je m'inscrire sur loubby
+2025-03-05 22:07:13,238 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-05 22:07:13,240 - __main__ - INFO - Generated response: To sign up for Loubby, go to [loubby.ai/recruitment](https://loubby.ai/recruitment) and click the "Sign Up" button in the top right corner. Then, enter your email address and create a password.
+2025-03-05 22:09:41,140 - __main__ - ERROR - WebSocket error: (1012, None)
+2025-03-05 22:09:41,152 - __main__ - INFO - WebSocket connection closed
+2025-03-05 22:09:41,508 - __main__ - INFO - Connection state: closed
