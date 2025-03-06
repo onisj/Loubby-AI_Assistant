@@ -7,8 +7,9 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 from groq import Groq
 from pinecone import Pinecone, ServerlessSpec
-from google.cloud import speech, texttospeech
-from langdetect import detect
+from google.cloud import speech, texttospeech, translate_v2  # Corrected import
+from langdetect import detect, DetectorFactory
+from langdetect.lang_detect_exception import LangDetectException
 import logging
 import asyncio
 import uuid
@@ -23,6 +24,9 @@ from docx import Document
 import numpy as np
 import pyaudio
 from aiortc import RTCPeerConnection, RTCSessionDescription, AudioStreamTrack
+
+# Ensure deterministic language detection
+DetectorFactory.seed = 0
 
 # Logging setup
 logging.basicConfig(level=logging.INFO, filename="logs/app.log", filemode="a", format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
@@ -64,6 +68,7 @@ embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 # Google Cloud clients
 speech_client = speech.SpeechClient()
 tts_client = texttospeech.TextToSpeechClient()
+translate_client = translate_v2.Client()  # Corrected client instantiation
 
 # Load Loubby Documentation
 def load_docx(file_path):
@@ -115,7 +120,7 @@ def update_chunk_ratings(query: str, rating: int):
         index.update(id=chunk_id, set_metadata={"rating_score": new_score}, namespace="loubby")
         logger.info(f"Updated chunk {chunk_id} rating to {new_score}")
 
-# Chat endpoint with Google Cloud TTS
+# Chat endpoint with improved multilingual support
 @app.post("/chat")
 @limiter.limit("10/minute")
 async def chat(request: Request, chat_request: ChatRequest):
@@ -123,17 +128,22 @@ async def chat(request: Request, chat_request: ChatRequest):
         query = chat_request.query
         logger.info(f"Received query: {query}")
 
-        query_lang = chat_request.lang if chat_request.lang != "auto" else detect(query)
-        if query_lang != 'en':
-            query = query  # Translation handled below if needed
+        # Detect language with fallback to Google Translate
+        try:
+            query_lang = chat_request.lang if chat_request.lang != "auto" else detect(query)
+        except LangDetectException:
+            result = translate_client.detect_text([query])[0]  # Updated method for v2
+            query_lang = result.get("language") or "en"  # Fallback to English if detection fails
+        logger.info(f"Detected language: {query_lang}")
 
+        # Query Pinecone for context
         query_embedding = embedding_model.encode([query])[0]
         search_results = index.query(vector=query_embedding.tolist(), top_k=3, include_metadata=True, namespace="loubby")
         context = " ".join([match["metadata"]["text"] for match in sorted(
             search_results["matches"], key=lambda x: x["metadata"].get("rating_score", 0.0), reverse=True)])
 
         feedback_summary = generate_feedback_summary()
-        prompt = f"Context: {context}\nFeedback Summary: {feedback_summary}\nQuery: {query}\nProvide a clear, concise answer."
+        prompt = f"Context: {context}\nFeedback Summary: {feedback_summary}\nQuery: {query}\nProvide a clear, concise answer in {query_lang}."
         response = groq_client.chat.completions.create(
             model="mixtral-8x7b-32768",
             messages=[{"role": "user", "content": prompt}],
@@ -141,15 +151,17 @@ async def chat(request: Request, chat_request: ChatRequest):
             temperature=0.7
         ).choices[0].message.content
 
-        if query_lang != 'en':
+        # Generate audio in detected language
+        try:
             synthesis_input = texttospeech.SynthesisInput(text=response)
             voice = texttospeech.VoiceSelectionParams(language_code=query_lang, ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL)
             audio_config = texttospeech.AudioConfig(audio_encoding=texttospeech.AudioEncoding.LINEAR16)
             tts_response = tts_client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
             audio_content = tts_response.audio_content
-            response_dict = {"query": chat_request.query, "answer": response, "lang": query_lang, "audio": audio_content.hex()}
-        else:
-            response_dict = {"query": chat_request.query, "answer": response, "lang": query_lang}
+            response_dict = {"query": query, "answer": response, "lang": query_lang, "audio": audio_content.hex()}
+        except Exception as e:
+            logger.error(f"TTS error: {str(e)}")
+            response_dict = {"query": query, "answer": response, "lang": query_lang}  # Fallback to text-only
 
         logger.info(f"Generated response: {response}")
         return response_dict
@@ -194,6 +206,7 @@ async def offer(request: Request):
     pc.addTrack(ai_track)
 
     async def process_audio():
+        logger.info("Starting audio processing")
         p = pyaudio.PyAudio()
         stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
         output_stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, output=True, frames_per_buffer=1024)
@@ -201,29 +214,28 @@ async def offer(request: Request):
         while True:
             try:
                 audio_data = stream.read(1024, exception_on_overflow=False)
+                logger.info(f"Read audio data: {len(audio_data)} bytes")
                 audio_config = speech.RecognitionConfig(
                     encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
                     sample_rate_hertz=16000,
-                    language_code="en-US"
+                    language_code="auto"  # Auto-detect any language
                 )
                 audio = speech.RecognitionAudio(content=audio_data)
                 response = speech_client.recognize(config=audio_config, audio=audio)
 
                 if response.results:
                     query = response.results[0].alternatives[0].transcript
-                    logger.info(f"Recognized query: {query}")
+                    detected_lang = response.results[0].language_code
+                    logger.info(f"Recognized query: {query}, Language: {detected_lang}")
 
-                    query_lang = detect(query)
-                    if query_lang != 'en':
-                        query = query  # Translation handled below if needed
-
+                    # Query Pinecone for context
                     query_embedding = embedding_model.encode([query])[0]
                     search_results = index.query(vector=query_embedding.tolist(), top_k=3, include_metadata=True, namespace="loubby")
                     context = " ".join([match["metadata"]["text"] for match in sorted(
                         search_results["matches"], key=lambda x: x["metadata"].get("rating_score", 0.0), reverse=True)])
 
                     feedback_summary = generate_feedback_summary()
-                    prompt = f"Context: {context}\nFeedback Summary: {feedback_summary}\nQuery: {query}\nProvide a clear, concise answer."
+                    prompt = f"Context: {context}\nFeedback Summary: {feedback_summary}\nQuery: {query}\nProvide a clear, concise answer in {detected_lang}."
                     ai_response = groq_client.chat.completions.create(
                         model="mixtral-8x7b-32768",
                         messages=[{"role": "user", "content": prompt}],
@@ -231,14 +243,19 @@ async def offer(request: Request):
                         temperature=0.7
                     ).choices[0].message.content
 
-                    synthesis_input = texttospeech.SynthesisInput(text=ai_response)
-                    voice = texttospeech.VoiceSelectionParams(language_code=query_lang if query_lang != 'en' else "en-US", ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL)
-                    audio_config = texttospeech.AudioConfig(audio_encoding=texttospeech.AudioEncoding.LINEAR16)
-                    tts_response = tts_client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
-                    audio_content = tts_response.audio_content
+                    # Generate audio response in detected language
+                    try:
+                        synthesis_input = texttospeech.SynthesisInput(text=ai_response)
+                        voice = texttospeech.VoiceSelectionParams(language_code=detected_lang, ssml_gender=texttospeech.SsmlVoiceGender.NEUTRAL)
+                        audio_config = texttospeech.AudioConfig(audio_encoding=texttospeech.AudioEncoding.LINEAR16)
+                        tts_response = tts_client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
+                        audio_content = tts_response.audio_content
+                        logger.info(f"Synthesized audio length: {len(audio_content)} bytes")
 
-                    await ai_track.audio_queue.put(np.frombuffer(audio_content, dtype=np.int16))
-                    output_stream.write(audio_content)
+                        await ai_track.audio_queue.put(np.frombuffer(audio_content, dtype=np.int16))
+                        output_stream.write(audio_content)
+                    except Exception as e:
+                        logger.error(f"Voice chat TTS error: {str(e)}")
 
             except Exception as e:
                 logger.error(f"Voice chat error: {str(e)}")
@@ -249,6 +266,7 @@ async def offer(request: Request):
         output_stream.stop_stream()
         output_stream.close()
         p.terminate()
+        logger.info("Audio processing stopped")
 
     asyncio.create_task(process_audio())
     answer = await pc.createAnswer()
@@ -271,7 +289,6 @@ async def websocket_handler(websocket: WebSocket):
         while True:
             data = await websocket.receive_text()
             logger.info(f"Received WebSocket message: {data}")
-            # Handle WebSocket messages if needed (e.g., ICE candidates)
             await websocket.send_text("Echo: " + data)  # Placeholder response
     except Exception as e:
         logger.error(f"WebSocket error: {str(e)}")

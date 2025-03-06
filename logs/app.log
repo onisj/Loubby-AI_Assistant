@@ -279,3 +279,602 @@ message: "Cloud Text-to-Speech API has not been used in project 1082698769380 be
 2025-03-05 22:09:41,140 - __main__ - ERROR - WebSocket error: (1012, None)
 2025-03-05 22:09:41,152 - __main__ - INFO - WebSocket connection closed
 2025-03-05 22:09:41,508 - __main__ - INFO - Connection state: closed
+2025-03-05 23:45:56,029 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-05 23:45:56,031 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-05 23:47:53,770 - __main__ - INFO - WebSocket connection established
+2025-03-05 23:47:59,793 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 1801604660128993801 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS 57e3c6d4-2d2b-4aeb-83b2-ad41c9dd0c01\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:m93N\r\na=ice-pwd:l6rjgUZLSYiLsbtS8a44wWWe\r\na=ice-options:trickle\r\na=fingerprint:sha-256 DE:1F:0A:D9:B1:31:34:32:C6:73:CE:D3:23:E3:FF:31:A9:2E:6C:4C:C8:C5:EA:60:25:F6:EF:C0:1D:AF:79:CD\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:57e3c6d4-2d2b-4aeb-83b2-ad41c9dd0c01 701ae521-d89f-4f8c-82da-ea8168d4ee99\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:4020114867 cname:uvGvHMaeRMhh0uCz\r\na=ssrc:4020114867 msid:57e3c6d4-2d2b-4aeb-83b2-ad41c9dd0c01 701ae521-d89f-4f8c-82da-ea8168d4ee99\r\n","type":"offer"}
+2025-03-05 23:48:04,696 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-05 23:48:04,987 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:451202283 1 udp 2122260223 172.20.10.3 50425 typ host generation 0 ufrag m93N network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"m93N"}}
+2025-03-05 23:48:04,992 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:1680551539 1 tcp 1518280447 172.20.10.3 9 typ host tcptype active generation 0 ufrag m93N network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"m93N"}}
+2025-03-05 23:48:05,053 - __main__ - INFO - Connection state: connecting
+2025-03-05 23:48:05,098 - aioice.ice - INFO - Connection(0) Discovered peer reflexive candidate Candidate(LFP9jRWxzJ 1 udp 1853824767 172.20.10.3 50425 typ prflx)
+2025-03-05 23:48:05,098 - aioice.ice - INFO - Connection(0) Check CandidatePair(('172.20.10.3', 64953) -> ('172.20.10.3', 50425)) State.WAITING -> State.IN_PROGRESS
+2025-03-05 23:48:05,106 - aioice.ice - INFO - Connection(0) Check CandidatePair(('172.20.10.3', 64953) -> ('172.20.10.3', 50425)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-05 23:48:05,107 - aioice.ice - INFO - Connection(0) ICE completed
+2025-03-05 23:48:05,211 - __main__ - INFO - Connection state: connected
+2025-03-05 23:55:06,622 - __main__ - ERROR - WebSocket error: (1001, None)
+2025-03-05 23:55:06,633 - __main__ - INFO - WebSocket connection closed
+2025-03-05 23:55:06,805 - __main__ - INFO - Connection state: closed
+2025-03-05 23:55:06,976 - __main__ - INFO - WebSocket connection established
+2025-03-05 23:55:11,055 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 8654843739426567277 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS 9ec3a299-480f-4f52-a5fb-4d4fd20ef65c\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:Vvgt\r\na=ice-pwd:zJzdNCyE9AfBadB9th8LWxXU\r\na=ice-options:trickle\r\na=fingerprint:sha-256 62:0D:51:45:C3:4D:B4:C7:F3:4D:A3:4B:41:16:AC:F6:7B:6F:F6:43:5F:EA:CD:39:71:5F:4E:3A:48:DE:2D:DB\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:9ec3a299-480f-4f52-a5fb-4d4fd20ef65c 84cfb08e-4cce-4575-998d-266079ee5dc7\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:584985366 cname:sjksxs1GXE3PVGSc\r\na=ssrc:584985366 msid:9ec3a299-480f-4f52-a5fb-4d4fd20ef65c 84cfb08e-4cce-4575-998d-266079ee5dc7\r\n","type":"offer"}
+2025-03-05 23:55:12,788 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-05 23:55:13,071 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:413403867 1 udp 2122260223 172.20.10.3 60133 typ host generation 0 ufrag Vvgt network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"Vvgt"}}
+2025-03-05 23:55:13,073 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:3859734095 1 tcp 1518280447 172.20.10.3 9 typ host tcptype active generation 0 ufrag Vvgt network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"Vvgt"}}
+2025-03-05 23:55:13,156 - __main__ - INFO - Connection state: connecting
+2025-03-05 23:55:13,209 - aioice.ice - INFO - Connection(1) Discovered peer reflexive candidate Candidate(HBCpPF80yk 1 udp 1853824767 172.20.10.3 60133 typ prflx)
+2025-03-05 23:55:13,212 - aioice.ice - INFO - Connection(1) Check CandidatePair(('172.20.10.3', 53607) -> ('172.20.10.3', 60133)) State.WAITING -> State.IN_PROGRESS
+2025-03-05 23:55:13,214 - aioice.ice - INFO - Connection(1) Check CandidatePair(('172.20.10.3', 53607) -> ('172.20.10.3', 60133)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-05 23:55:13,225 - aioice.ice - INFO - Connection(1) ICE completed
+2025-03-05 23:55:13,327 - __main__ - INFO - Connection state: connected
+2025-03-05 23:56:18,781 - __main__ - ERROR - WebSocket error: (1001, None)
+2025-03-05 23:56:18,781 - __main__ - INFO - WebSocket connection closed
+2025-03-05 23:56:18,796 - __main__ - INFO - Connection state: closed
+2025-03-05 23:56:18,956 - __main__ - INFO - WebSocket connection established
+2025-03-05 23:56:21,716 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 4523964861522553523 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS 1282e5a8-d391-4549-952b-5b7f8c4c3fde\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:RNYK\r\na=ice-pwd:gyHK8SC2jSx9+yKqz+P2Zysk\r\na=ice-options:trickle\r\na=fingerprint:sha-256 28:F1:45:8C:60:C3:D0:19:9A:7A:E4:18:B9:15:67:7A:9D:16:E1:A8:DC:ED:CC:4E:78:C8:49:58:E4:34:51:11\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:1282e5a8-d391-4549-952b-5b7f8c4c3fde 4f1125f3-374e-4ce8-ae8e-94dd7af8ef95\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:1475244128 cname:XiUMRn7xRfkt2OUE\r\na=ssrc:1475244128 msid:1282e5a8-d391-4549-952b-5b7f8c4c3fde 4f1125f3-374e-4ce8-ae8e-94dd7af8ef95\r\n","type":"offer"}
+2025-03-05 23:56:21,733 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:3412138696 1 udp 2122260223 172.20.10.3 58040 typ host generation 0 ufrag RNYK network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"RNYK"}}
+2025-03-05 23:56:22,363 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-05 23:56:22,656 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:3048142928 1 tcp 1518280447 172.20.10.3 9 typ host tcptype active generation 0 ufrag RNYK network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"RNYK"}}
+2025-03-05 23:56:22,686 - __main__ - INFO - Connection state: connecting
+2025-03-05 23:56:22,729 - aioice.ice - INFO - Connection(2) Discovered peer reflexive candidate Candidate(fn9ZdD3mJc 1 udp 1853824767 172.20.10.3 58040 typ prflx)
+2025-03-05 23:56:22,730 - aioice.ice - INFO - Connection(2) Check CandidatePair(('172.20.10.3', 52808) -> ('172.20.10.3', 58040)) State.WAITING -> State.IN_PROGRESS
+2025-03-05 23:56:22,733 - aioice.ice - INFO - Connection(2) Check CandidatePair(('172.20.10.3', 52808) -> ('172.20.10.3', 58040)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-05 23:56:22,733 - aioice.ice - INFO - Connection(2) ICE completed
+2025-03-05 23:56:22,774 - __main__ - INFO - Connection state: connected
+2025-03-06 00:10:05,112 - __main__ - ERROR - WebSocket error: (1001, None)
+2025-03-06 00:10:05,133 - __main__ - INFO - WebSocket connection closed
+2025-03-06 00:10:05,801 - __main__ - INFO - WebSocket connection established
+2025-03-06 00:10:05,954 - __main__ - INFO - Connection state: closed
+2025-03-06 00:10:09,229 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 1893762368860501338 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS 6721845f-3b63-43ae-884d-a3d5fff6dd4f\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:XCvN\r\na=ice-pwd:5N8q0j7jlbAbw+WeUkeJFMUl\r\na=ice-options:trickle\r\na=fingerprint:sha-256 C1:28:6C:FA:CD:E7:18:75:60:05:F2:00:27:9C:65:B6:8A:75:77:D6:98:91:12:2A:D3:19:88:78:09:FF:58:D8\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:6721845f-3b63-43ae-884d-a3d5fff6dd4f c9485a35-368c-42b4-8ade-f298af5bb14e\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:3190357583 cname:q1P/O5V2dvF4584O\r\na=ssrc:3190357583 msid:6721845f-3b63-43ae-884d-a3d5fff6dd4f c9485a35-368c-42b4-8ade-f298af5bb14e\r\n","type":"offer"}
+2025-03-06 00:10:10,676 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 00:10:10,978 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:3808019995 1 udp 2122260223 172.20.10.3 54542 typ host generation 0 ufrag XCvN network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"XCvN"}}
+2025-03-06 00:10:10,984 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:2620793987 1 tcp 1518280447 172.20.10.3 9 typ host tcptype active generation 0 ufrag XCvN network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"XCvN"}}
+2025-03-06 00:10:11,089 - __main__ - INFO - Connection state: connecting
+2025-03-06 00:10:11,103 - aioice.ice - INFO - Connection(3) Discovered peer reflexive candidate Candidate(pkND6dGjCs 1 udp 1853824767 172.20.10.3 54542 typ prflx)
+2025-03-06 00:10:11,103 - aioice.ice - INFO - Connection(3) Check CandidatePair(('172.20.10.3', 52781) -> ('172.20.10.3', 54542)) State.WAITING -> State.IN_PROGRESS
+2025-03-06 00:10:11,106 - aioice.ice - INFO - Connection(3) Check CandidatePair(('172.20.10.3', 52781) -> ('172.20.10.3', 54542)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-06 00:10:11,106 - aioice.ice - INFO - Connection(3) ICE completed
+2025-03-06 00:10:11,209 - __main__ - INFO - Connection state: connected
+2025-03-06 00:16:29,026 - __main__ - ERROR - WebSocket error: (1001, None)
+2025-03-06 00:16:29,028 - __main__ - INFO - WebSocket connection closed
+2025-03-06 00:16:29,368 - __main__ - INFO - WebSocket connection established
+2025-03-06 00:16:29,486 - __main__ - INFO - Connection state: closed
+2025-03-06 00:16:33,750 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 8642183052594926292 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS b95c2d37-803f-4ab4-8dad-f2d45258c37c\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:lq+E\r\na=ice-pwd:XOG7WhIlCwUTeEYL/n/noKuJ\r\na=ice-options:trickle\r\na=fingerprint:sha-256 8B:80:FE:61:BC:B1:71:28:E6:61:CD:D1:64:0C:42:86:37:E2:01:E9:C0:2B:A1:A9:24:72:6D:42:57:64:D4:2E\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:b95c2d37-803f-4ab4-8dad-f2d45258c37c bd476473-7a76-4d0e-a981-96de1d5e9c82\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:3158324845 cname:oZMyzpoF3Ji65Q/e\r\na=ssrc:3158324845 msid:b95c2d37-803f-4ab4-8dad-f2d45258c37c bd476473-7a76-4d0e-a981-96de1d5e9c82\r\n","type":"offer"}
+2025-03-06 00:16:33,841 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:3883233584 1 udp 2122260223 172.20.10.3 61837 typ host generation 0 ufrag lq+E network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"lq+E"}}
+2025-03-06 00:16:34,674 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 00:16:34,946 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:434087332 1 tcp 1518280447 172.20.10.3 9 typ host tcptype active generation 0 ufrag lq+E network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"lq+E"}}
+2025-03-06 00:16:34,997 - __main__ - INFO - Connection state: connecting
+2025-03-06 00:16:35,019 - aioice.ice - INFO - Connection(4) Discovered peer reflexive candidate Candidate(lHUpAK9Lau 1 udp 1853824767 172.20.10.3 61837 typ prflx)
+2025-03-06 00:16:35,054 - aioice.ice - INFO - Connection(4) Check CandidatePair(('172.20.10.3', 49344) -> ('172.20.10.3', 61837)) State.WAITING -> State.IN_PROGRESS
+2025-03-06 00:16:35,078 - aioice.ice - INFO - Connection(4) Check CandidatePair(('172.20.10.3', 49344) -> ('172.20.10.3', 61837)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-06 00:16:35,078 - aioice.ice - INFO - Connection(4) ICE completed
+2025-03-06 00:16:35,118 - __main__ - INFO - Connection state: connected
+2025-03-06 00:17:39,639 - aioice.ice - INFO - Connection(4) Consent to send expired
+2025-03-06 00:17:39,648 - __main__ - INFO - Connection state: closed
+2025-03-06 00:33:14,735 - __main__ - ERROR - WebSocket error: (<CloseCode.ABNORMAL_CLOSURE: 1006>, None)
+2025-03-06 00:33:14,746 - __main__ - INFO - WebSocket connection closed
+2025-03-06 09:27:03,824 - __main__ - INFO - WebSocket connection established
+2025-03-06 09:27:11,027 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 6324383565484061465 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS a24fe66a-6bf6-4cf5-8a65-758b1da9f73e\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:Xvl9\r\na=ice-pwd:iSkEtgKgrjn7Pg4pyILLnqq7\r\na=ice-options:trickle\r\na=fingerprint:sha-256 4C:3C:04:65:D6:48:AE:63:CA:6B:E4:E0:E4:6D:F0:BF:FB:12:3E:9F:5F:B0:8F:DB:72:C4:57:23:3D:2C:B7:B0\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:a24fe66a-6bf6-4cf5-8a65-758b1da9f73e 2fa6748c-ec85-46af-9495-0e2d04db7c29\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:2802601677 cname:vx70unqBa7WX+K1U\r\na=ssrc:2802601677 msid:a24fe66a-6bf6-4cf5-8a65-758b1da9f73e 2fa6748c-ec85-46af-9495-0e2d04db7c29\r\n","type":"offer"}
+2025-03-06 09:27:11,293 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:1368828097 1 udp 2122260223 192.168.100.205 59039 typ host generation 0 ufrag Xvl9 network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"Xvl9"}}
+2025-03-06 09:27:14,299 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 09:27:14,644 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:794380889 1 tcp 1518280447 192.168.100.205 9 typ host tcptype active generation 0 ufrag Xvl9 network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"Xvl9"}}
+2025-03-06 09:27:14,750 - __main__ - INFO - Connection state: connecting
+2025-03-06 09:27:14,952 - aioice.ice - INFO - Connection(5) Discovered peer reflexive candidate Candidate(BoTLALhJ32 1 udp 1853824767 192.168.100.205 59039 typ prflx)
+2025-03-06 09:27:14,954 - aioice.ice - INFO - Connection(5) Check CandidatePair(('192.168.100.205', 65060) -> ('192.168.100.205', 59039)) State.WAITING -> State.IN_PROGRESS
+2025-03-06 09:27:14,996 - aioice.ice - INFO - Connection(5) Check CandidatePair(('192.168.100.205', 65060) -> ('192.168.100.205', 59039)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-06 09:27:14,996 - aioice.ice - INFO - Connection(5) ICE completed
+2025-03-06 09:27:15,125 - __main__ - INFO - Connection state: connected
+2025-03-06 09:39:47,612 - __main__ - ERROR - WebSocket error: (1001, None)
+2025-03-06 09:39:47,615 - __main__ - INFO - WebSocket connection closed
+2025-03-06 09:39:48,093 - __main__ - INFO - Connection state: closed
+2025-03-06 09:39:49,819 - __main__ - INFO - WebSocket connection established
+2025-03-06 09:39:56,915 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 6776705094026536332 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS 15b90e04-dc41-4299-a8f3-42f59c1e416d\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:Zyfs\r\na=ice-pwd:/hR4Y9XQZrbDEmIUZbIMPPpo\r\na=ice-options:trickle\r\na=fingerprint:sha-256 42:CC:2C:D0:E7:60:73:86:74:51:7D:6D:FE:FA:55:4A:DB:AC:46:62:71:D8:60:97:97:FA:63:DF:4D:2D:2E:D6\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:15b90e04-dc41-4299-a8f3-42f59c1e416d acce0065-35d4-404c-b7a4-ff7bed025126\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:2877765429 cname:UXi0Eoklpg4XwYAQ\r\na=ssrc:2877765429 msid:15b90e04-dc41-4299-a8f3-42f59c1e416d acce0065-35d4-404c-b7a4-ff7bed025126\r\n","type":"offer"}
+2025-03-06 09:39:56,925 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:3744398410 1 udp 2122260223 192.168.100.205 62805 typ host generation 0 ufrag Zyfs network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"Zyfs"}}
+2025-03-06 09:39:56,926 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:562309342 1 tcp 1518280447 192.168.100.205 9 typ host tcptype active generation 0 ufrag Zyfs network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"Zyfs"}}
+2025-03-06 09:39:57,806 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 09:39:58,378 - __main__ - INFO - Connection state: connecting
+2025-03-06 09:39:58,385 - aioice.ice - INFO - Connection(6) Discovered peer reflexive candidate Candidate(Gi3FcfR7YT 1 udp 1853824767 192.168.100.205 62805 typ prflx)
+2025-03-06 09:39:58,386 - aioice.ice - INFO - Connection(6) Check CandidatePair(('192.168.100.205', 54802) -> ('192.168.100.205', 62805)) State.WAITING -> State.IN_PROGRESS
+2025-03-06 09:39:58,394 - aioice.ice - INFO - Connection(6) Check CandidatePair(('192.168.100.205', 54802) -> ('192.168.100.205', 62805)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-06 09:39:58,395 - aioice.ice - INFO - Connection(6) ICE completed
+2025-03-06 09:39:58,574 - __main__ - INFO - Connection state: connected
+2025-03-06 10:39:24,673 - __main__ - ERROR - WebSocket error: (1001, None)
+2025-03-06 10:39:24,675 - __main__ - INFO - WebSocket connection closed
+2025-03-06 10:39:25,454 - __main__ - INFO - Connection state: closed
+2025-03-06 10:39:26,747 - __main__ - INFO - WebSocket connection established
+2025-03-06 10:39:34,097 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 6821379536630551121 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS ca35cb5e-e02b-42cc-9fef-c4cf57d848f7\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:t0nQ\r\na=ice-pwd:IyqnFg0B/HRB/MoMmcetvvpB\r\na=ice-options:trickle\r\na=fingerprint:sha-256 CB:9D:D9:A9:4B:B2:04:87:81:A2:21:DD:E4:42:9D:88:58:59:54:63:F6:B5:80:68:EC:C5:2A:0B:18:97:8C:38\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:ca35cb5e-e02b-42cc-9fef-c4cf57d848f7 9d903395-ae8a-4a12-9b1d-a03a0bbb826e\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:2337951893 cname:OGEe+ZxCdXXEviFZ\r\na=ssrc:2337951893 msid:ca35cb5e-e02b-42cc-9fef-c4cf57d848f7 9d903395-ae8a-4a12-9b1d-a03a0bbb826e\r\n","type":"offer"}
+2025-03-06 10:39:34,109 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:2507997971 1 udp 2122260223 192.168.100.205 49297 typ host generation 0 ufrag t0nQ network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"t0nQ"}}
+2025-03-06 10:39:37,669 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 10:39:37,977 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:1809307527 1 tcp 1518280447 192.168.100.205 9 typ host tcptype active generation 0 ufrag t0nQ network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"t0nQ"}}
+2025-03-06 10:39:38,645 - __main__ - INFO - Connection state: connecting
+2025-03-06 10:39:38,796 - aioice.ice - INFO - Connection(7) Discovered peer reflexive candidate Candidate(fFCLXYeImy 1 udp 1853824767 192.168.100.205 49297 typ prflx)
+2025-03-06 10:39:38,798 - aioice.ice - INFO - Connection(7) Check CandidatePair(('192.168.100.205', 56031) -> ('192.168.100.205', 49297)) State.WAITING -> State.IN_PROGRESS
+2025-03-06 10:39:38,812 - aioice.ice - INFO - Connection(7) Check CandidatePair(('192.168.100.205', 56031) -> ('192.168.100.205', 49297)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-06 10:39:38,812 - aioice.ice - INFO - Connection(7) ICE completed
+2025-03-06 10:39:39,016 - __main__ - INFO - Connection state: connected
+2025-03-06 11:08:38,886 - __main__ - ERROR - WebSocket error: (1012, None)
+2025-03-06 11:08:38,890 - __main__ - INFO - WebSocket connection closed
+2025-03-06 11:08:39,723 - __main__ - INFO - Connection state: closed
+2025-03-06 11:08:51,942 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-388316' coro=<RTCPeerConnection.close() done, defined at /Users/macmac/miniconda3/envs/loubby/lib/python3.9/site-packages/aiortc/rtcpeerconnection.py:478> wait_for=<Future finished result=True>>
+2025-03-06 11:09:44,075 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-06 11:09:44,077 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-06 11:12:34,145 - __main__ - INFO - WebSocket connection established
+2025-03-06 11:12:40,114 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 8653933267797544423 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS ca3fc8f4-6d63-4c77-9ba5-7d675153eece\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:xM97\r\na=ice-pwd:kLR1VGo2FH4vHgiVsL49xZZO\r\na=ice-options:trickle\r\na=fingerprint:sha-256 7F:76:A9:90:7A:97:D9:37:AD:AC:37:C6:58:E6:E1:CF:A9:AC:EA:C6:8C:0B:62:2A:C0:1D:AD:1C:E5:A4:0B:C9\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:ca3fc8f4-6d63-4c77-9ba5-7d675153eece d565eefa-20a2-400c-81a7-bfc787ae88d9\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:3378494600 cname:UEpToghZXtNlid2b\r\na=ssrc:3378494600 msid:ca3fc8f4-6d63-4c77-9ba5-7d675153eece d565eefa-20a2-400c-81a7-bfc787ae88d9\r\n","type":"offer"}
+2025-03-06 11:12:41,661 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:3499669240 1 udp 2122260223 192.168.100.205 52226 typ host generation 0 ufrag xM97 network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"xM97"}}
+2025-03-06 11:12:41,661 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:2924958816 1 tcp 1518280447 192.168.100.205 9 typ host tcptype active generation 0 ufrag xM97 network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"xM97"}}
+2025-03-06 11:12:41,662 - __main__ - INFO - Starting audio processing
+2025-03-06 11:12:42,805 - __main__ - INFO - Read audio data: 2048 bytes
+2025-03-06 11:12:43,939 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 11:12:44,291 - __main__ - INFO - Audio processing stopped
+2025-03-06 11:12:44,665 - aioice.ice - INFO - Connection(0) Discovered peer reflexive candidate Candidate(QA7uBeQSgy 1 udp 1853824767 192.168.100.205 52226 typ prflx)
+2025-03-06 11:12:44,668 - __main__ - INFO - Connection state: connecting
+2025-03-06 11:12:44,668 - aioice.ice - INFO - Connection(0) Check CandidatePair(('192.168.100.205', 57675) -> ('192.168.100.205', 52226)) State.WAITING -> State.IN_PROGRESS
+2025-03-06 11:12:44,721 - aioice.ice - INFO - Connection(0) Check CandidatePair(('192.168.100.205', 57675) -> ('192.168.100.205', 52226)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-06 11:12:44,721 - aioice.ice - INFO - Connection(0) ICE completed
+2025-03-06 11:12:45,181 - __main__ - INFO - Connection state: connected
+2025-03-06 11:13:39,126 - __main__ - INFO - Received query: qu'est-ce que loubby?
+2025-03-06 11:13:41,704 - __main__ - INFO - Detected language: fr
+2025-03-06 11:13:45,397 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 11:13:46,280 - __main__ - ERROR - TTS error: 403 Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "texttospeech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Text-to-Speech API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 11:13:46,281 - __main__ - INFO - Generated response: Loubby est une plateforme de recrutement en ligne qui permet aux candidats de créer un compte, de postuler à des emplois et de participer à des entretiens virtuels. Pour accéder à Loubby sur des appareils mobiles, les candidats peuvent utiliser la version web adaptée à tous les navigateurs mobiles ou télécharger l'application Loubby depuis l'App Store ou Google Play. Les candidats peuvent utiliser les mêmes identifiants de connexion pour la version web et mobile. Il est également possible d'activer les notifications pour être alerté des entretiens à venir. Pour
+2025-03-06 11:16:39,202 - __main__ - INFO - Received query: kedu ihe bụ loubby??
+2025-03-06 11:16:39,250 - __main__ - INFO - Detected language: vi
+2025-03-06 11:16:42,749 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 11:16:42,897 - __main__ - ERROR - TTS error: 403 Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "texttospeech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Text-to-Speech API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 11:16:42,898 - __main__ - INFO - Generated response: Loubby là một trang thông tin tuyển dụng. Bạn có thể tạo tài khoản tại [loubby.ai/recruitment](https://loubby.ai/recruitment) bằng cách nhấp vào nút "Sign Up" trên góc phải trên trang web. Sau khi được mời nhận việc, bạn sẽ nhận được một email với thông tin đăng nhập và
+2025-03-06 11:17:38,656 - __main__ - INFO - Received query: Loubby to wa nanidesu ka?
+2025-03-06 11:17:38,880 - __main__ - INFO - Detected language: sw
+2025-03-06 11:17:40,173 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 11:17:40,306 - __main__ - ERROR - TTS error: 403 Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "texttospeech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Text-to-Speech API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 11:17:40,307 - __main__ - INFO - Generated response: Loubby wa web version to na mobile app ni responsive na accessible anda. Employee portal ni accessan makapag-log in ka sa [loubby.ai/employee](https://loubby.ai/employee) kag set-up kini kung kinahanglan. Loubby sa email ni login credentials kag two-factor authentication ni set-up kung kinahanglan sendan kini pag-accept ka na sa job offer.
+2025-03-06 11:24:25,225 - __main__ - ERROR - WebSocket error: (1012, None)
+2025-03-06 11:24:25,231 - __main__ - INFO - WebSocket connection closed
+2025-03-06 11:24:25,457 - __main__ - INFO - Connection state: closed
+2025-03-06 11:31:53,105 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-06 11:31:53,106 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-06 11:41:21,078 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-03-06 11:41:21,079 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-03-06 11:43:01,518 - __main__ - INFO - Received query: Was ist Loubby?
+2025-03-06 11:43:02,217 - __main__ - INFO - Detected language: en
+2025-03-06 11:43:08,244 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 11:43:09,508 - __main__ - ERROR - TTS error: 403 Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "texttospeech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Text-to-Speech API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 11:43:09,509 - __main__ - INFO - Generated response: Loubby is a recruitment portal that can be accessed through a web browser or a mobile app. To create an account, you need to navigate to the Loubby recruitment portal, click the "Sign Up" button, enter your email address and create a password. After accepting a job offer, you'll receive an email with login credentials for the employee portal. You can access the employee portal by navigating to the Loubby employee website and entering your credentials from the email. Loubby also offers two-factor authentication for added security.
+2025-03-06 11:43:39,735 - __main__ - INFO - Received query: kedụ ihe bụ Loubby?
+2025-03-06 11:43:39,753 - __main__ - INFO - Detected language: vi
+2025-03-06 11:43:41,274 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 11:43:41,721 - __main__ - ERROR - TTS error: 403 Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "texttospeech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Text-to-Speech API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Text-to-Speech API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/texttospeech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 11:43:41,722 - __main__ - INFO - Generated response: Loubby là một trang tuyển dụng điện tử. Bạn có thể truy cập vào nó thông qua trình duyệt web trên thiết bị di động hoặc tải xuống ứng dụng di động từ App Store hoặc Google Play. Để tạo tài khoản trên Loubby, bạn vui lòng đi tới địa chỉ [loubby.ai/recruitment](https://l
+2025-03-06 11:44:05,448 - __main__ - INFO - WebSocket connection established
+2025-03-06 11:44:08,273 - __main__ - INFO - Received WebSocket message: {"sdp":"v=0\r\no=- 2263545196985169515 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS 7fc8c358-5305-4480-a0af-93780f014d7d\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:8g6q\r\na=ice-pwd:4vTwdkjgiP23lCrEuZM+Lwwg\r\na=ice-options:trickle\r\na=fingerprint:sha-256 08:4C:2D:E9:C2:06:DD:B4:64:C4:F9:10:1E:E2:FB:6A:48:AB:4D:C4:17:A3:12:A8:6B:1D:22:AC:E0:04:14:AB\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:7fc8c358-5305-4480-a0af-93780f014d7d ecc6cf78-00de-4e4d-9093-a3d2ca4719ab\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:63 red/48000/2\r\na=fmtp:63 111/111\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:1817939409 cname:Rsn2E5iTnCyCXNA4\r\na=ssrc:1817939409 msid:7fc8c358-5305-4480-a0af-93780f014d7d ecc6cf78-00de-4e4d-9093-a3d2ca4719ab\r\n","type":"offer"}
+2025-03-06 11:44:08,289 - __main__ - INFO - Starting audio processing
+2025-03-06 11:44:09,519 - __main__ - INFO - Read audio data: 2048 bytes
+2025-03-06 11:44:10,217 - __main__ - ERROR - Voice chat error: 403 Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. [reason: "SERVICE_DISABLED"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "speech.googleapis.com"
+}
+metadata {
+  key: "serviceTitle"
+  value: "Cloud Speech-to-Text API"
+}
+metadata {
+  key: "containerInfo"
+  value: "1082698769380"
+}
+metadata {
+  key: "consumer"
+  value: "projects/1082698769380"
+}
+metadata {
+  key: "activationUrl"
+  value: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+, locale: "en-US"
+message: "Cloud Speech-to-Text API has not been used in project 1082698769380 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+, links {
+  description: "Google developers console API activation"
+  url: "https://console.developers.google.com/apis/api/speech.googleapis.com/overview?project=1082698769380"
+}
+]
+2025-03-06 11:44:10,495 - __main__ - INFO - Audio processing stopped
+2025-03-06 11:44:10,504 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:3960685326 1 udp 2122260223 192.168.100.205 61742 typ host generation 0 ufrag 8g6q network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"8g6q"}}
+2025-03-06 11:44:10,506 - __main__ - INFO - Received WebSocket message: {"ice":{"candidate":"candidate:314152858 1 tcp 1518280447 192.168.100.205 9 typ host tcptype active generation 0 ufrag 8g6q network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"8g6q"}}
+2025-03-06 11:44:10,544 - __main__ - INFO - Connection state: connecting
+2025-03-06 11:44:10,594 - aioice.ice - INFO - Connection(0) Discovered peer reflexive candidate Candidate(cWhPjcqWqe 1 udp 1853824767 192.168.100.205 61742 typ prflx)
+2025-03-06 11:44:10,595 - aioice.ice - INFO - Connection(0) Check CandidatePair(('192.168.100.205', 60499) -> ('192.168.100.205', 61742)) State.WAITING -> State.IN_PROGRESS
+2025-03-06 11:44:10,604 - aioice.ice - INFO - Connection(0) Check CandidatePair(('192.168.100.205', 60499) -> ('192.168.100.205', 61742)) State.IN_PROGRESS -> State.SUCCEEDED
+2025-03-06 11:44:10,605 - aioice.ice - INFO - Connection(0) ICE completed
+2025-03-06 11:44:10,828 - __main__ - INFO - Connection state: connected
