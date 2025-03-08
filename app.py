@@ -1,8 +1,7 @@
-# app.py
 from langgraph.graph import StateGraph, END
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
-from utils import vectorstore  # Import the vectorstore correctly from utils.py
+from utils import vectorstore
 import os
 from dotenv import load_dotenv
 
@@ -11,7 +10,7 @@ load_dotenv()
 # Initialize GROQ LLM
 llm = ChatGroq(
     api_key=os.getenv("GROQ_API_KEY"),
-    model="llama3-8b-8192",  # Model can be changed depending on your needs
+    model="llama3-8b-8192",
     temperature=0.2,
     max_tokens=None
 )
@@ -32,20 +31,18 @@ Question: {question}
 Decision (YES or NO):
 """)
 
+# app.py (relevant snippet)
 def dynamic_memory_agent_step(state):
     query = state["question"]
     history = state.get("history", [])
-
-    # Determine whether to retrieve context
-    decision_response = llm.invoke(decision_prompt.format(question=query)).content.strip().upper()
+    loubby_query = f"Regarding the Loubby platform: {query}"
+    decision_response = llm.invoke(decision_prompt.format(question=loubby_query)).content.strip().upper()
 
     if decision_response == "YES":
-        # Perform RAG retrieval
-        retrieved_docs = vectorstore.similarity_search(query, k=3, namespace="nav_indexed")
+        retrieved_docs = vectorstore.similarity_search(loubby_query, k=3, namespace="nav_indexed")
         context = "\n".join(doc.page_content for doc in retrieved_docs)
-
         prompt_text = f"""
-        You are Loubby Navigator by Team Sigma, explicitly helping users navigate the Loubby website.
+        You are Loubby Navigator by Team Sigma, helping users navigate the Loubby website only.
 
         Conversation History:
         {"; ".join(history[-4:])}
@@ -54,27 +51,25 @@ def dynamic_memory_agent_step(state):
         {context}
 
         User's Question:
-        {query}
+        {loubby_query}
 
-        Provide explicit, clear guidance:
+        Provide clear guidance specific to the Loubby platform. If the query doesn’t relate to Loubby, clarify it’s outside scope but assume it’s intended for Loubby:
         """
     else:
-        context = "General conversation; no context needed."
+        context = "General Loubby conversation; no detailed context needed."
         prompt_text = f"""
-        You are Loubby Navigator by Team Sigma.
+        You are Loubby Navigator by Team Sigma, helping users navigate the Loubby website only.
 
         Conversation History:
         {"; ".join(history[-4:])}
 
         User says:
-        {query}
+        {loubby_query}
 
-        Respond clearly:
+        Respond clearly, keeping focus on the Loubby platform. If the query doesn’t relate to Loubby, clarify it’s outside scope but assume it’s intended for Loubby:
         """
 
-    # Generate answer using the LLM
     response = llm.invoke(prompt_text, temperature=0.3, max_tokens=1024)
-
     history.append(f"User: {query}")
     history.append(f"Loubby Navigator: {response.content}")
 
@@ -84,11 +79,9 @@ def dynamic_memory_agent_step(state):
         "history": history
     }
 
-# Initialize the LangGraph state graph
 dynamic_memory_graph = StateGraph(ChatMemoryState)
 dynamic_memory_graph.add_node("dynamic_memory_agent", dynamic_memory_agent_step)
 dynamic_memory_graph.set_entry_point("dynamic_memory_agent")
 dynamic_memory_graph.add_edge("dynamic_memory_agent", END)
 
-# Compile the workflow
 dynamic_memory_app = dynamic_memory_graph.compile()

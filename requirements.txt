@@ -10,8 +10,7 @@ langchain-groq
 pinecone
 huggingface_hub
 langchain-pinecone
-# # python-3.10.16   
-# conda install numpy
-# sentence-transformers
-
+pinecone-client
+deep-translator
+pymongo
 

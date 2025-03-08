@@ -1,3 +1,4 @@
+# utils.py
 import requests
 import os
 import time
@@ -8,7 +9,6 @@ from langchain_core.embeddings import Embeddings
 
 load_dotenv()
 
-# Hugging Face API setup
 HF_MODEL = "sentence-transformers/paraphrase-MiniLM-L3-v2"
 HF_HEADERS = {"Authorization": f"Bearer {os.getenv('HUGGINGFACE_API_KEY')}"}
 
@@ -38,14 +38,9 @@ class HuggingFaceAPIEmbeddings(Embeddings):
     def embed_documents(self, texts: list[str]):
         return [self.embed_query(text) for text in texts]
 
-# Initialize embeddings
 embedding = HuggingFaceAPIEmbeddings()
-
-# Initialize Pinecone
 pc = pinecone.Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 index = pc.Index(os.getenv("PINECONE_INDEX"))
-
-# Initialize PineconeVectorStore
 vectorstore = PineconeVectorStore(index=index, embedding=embedding, namespace="nav_indexed")
 
 print(f"Vectorstore initialized: {vectorstore is not None}")
