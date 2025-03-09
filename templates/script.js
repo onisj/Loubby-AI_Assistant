@@ -19,14 +19,14 @@ let isVideoActive = false;
 let recognition = null;
 let isFirstSession = true; // Track first session
 const synth = window.speechSynthesis;
-const API_URL = "http://localhost:8000/chat";
+const API_URL = "/chat";
 
 const loadDataFromLocalstorage = () => {
   const savedChats = localStorage.getItem("saved-chats");
-  const isLightMode = (localStorage.getItem("themeColor") === "light_mode");
+  const isLightMode = localStorage.getItem("themeColor") === "light_mode";
   document.body.classList.toggle("light_mode", isLightMode);
   toggleThemeButton.innerText = isLightMode ? "dark_mode" : "light_mode";
-  chatContainer.innerHTML = savedChats || '';
+  chatContainer.innerHTML = savedChats || "";
   document.body.classList.toggle("hide-header", savedChats);
   chatContainer.scrollTo(0, chatContainer.scrollHeight);
   isFirstSession = !savedChats; // Reset on refresh if no chats
@@ -40,10 +40,11 @@ const createMessageElement = (content, ...classes) => {
 };
 
 const showTypingEffect = (text, textElement, incomingMessageDiv) => {
-  const words = text.split(' ');
+  const words = text.split(" ");
   let currentWordIndex = 0;
   const typingInterval = setInterval(() => {
-    textElement.innerText += (currentWordIndex === 0 ? '' : ' ') + words[currentWordIndex++];
+    textElement.innerText +=
+      (currentWordIndex === 0 ? "" : " ") + words[currentWordIndex++];
     incomingMessageDiv.querySelector(".icon").classList.add("hide");
     if (currentWordIndex === words.length) {
       clearInterval(typingInterval);
@@ -63,7 +64,11 @@ const generateAPIResponse = async (incomingMessageDiv, query) => {
     const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: query, history: chatHistory, lang: langSelect.value })
+      body: JSON.stringify({
+        question: query,
+        history: chatHistory,
+        lang: langSelect.value,
+      }),
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.detail || "Error fetching response");
@@ -103,11 +108,12 @@ const copyMessage = (copyButton) => {
   const messageText = copyButton.parentElement.querySelector(".text").innerText;
   navigator.clipboard.writeText(messageText);
   copyButton.innerText = "done";
-  setTimeout(() => copyButton.innerText = "content_copy", 1000);
+  setTimeout(() => (copyButton.innerText = "content_copy"), 1000);
 };
 
 const handleOutgoingChat = () => {
-  userMessage = typingForm.querySelector(".typing-input").value.trim() || userMessage;
+  userMessage =
+    typingForm.querySelector(".typing-input").value.trim() || userMessage;
   if (!userMessage || isResponseGenerating) return;
   isResponseGenerating = true;
   const html = `<div class="message-content">
@@ -124,7 +130,8 @@ const handleOutgoingChat = () => {
 };
 
 const initializeRecognition = () => {
-  recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  recognition = new (window.SpeechRecognition ||
+    window.webkitSpeechRecognition)();
   recognition.continuous = false;
   recognition.interimResults = false;
   recognition.lang = langSelect.value;
@@ -153,7 +160,9 @@ const speakResponse = (text) => {
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.rate = 1.0;
   const voices = synth.getVoices();
-  const voice = voices.find(v => v.name.includes("Alex") || v.name.includes("Daniel")) || voices[0];
+  const voice =
+    voices.find((v) => v.name.includes("Alex") || v.name.includes("Daniel")) ||
+    voices[0];
   utterance.voice = voice;
   synth.speak(utterance);
   if (isVideoActive) {
@@ -165,11 +174,14 @@ const speakResponse = (text) => {
 };
 
 const speakGreeting = () => {
-  const greeting = "Hello there, I am your Loubby Navigator. What can I help you with today?";
+  const greeting =
+    "Hello there, I am your Loubby Navigator. What can I help you with today?";
   const utterance = new SpeechSynthesisUtterance(greeting);
   utterance.rate = 1.0;
   const voices = synth.getVoices();
-  const voice = voices.find(v => v.name.includes("Alex") || v.name.includes("Daniel")) || voices[0];
+  const voice =
+    voices.find((v) => v.name.includes("Alex") || v.name.includes("Daniel")) ||
+    voices[0];
   utterance.voice = voice;
   synth.speak(utterance);
   if (isVideoActive) {
@@ -191,7 +203,7 @@ deleteChatButton.addEventListener("click", () => {
   if (confirm("Are you sure you want to delete all the chats?")) {
     localStorage.removeItem("saved-chats");
     localStorage.removeItem("chat-history");
-    chatContainer.innerHTML = '';
+    chatContainer.innerHTML = "";
     document.body.classList.remove("hide-header");
     console.log("Chat cleared");
     isFirstSession = true; // Reset for next greeting
@@ -208,8 +220,8 @@ submitFeedbackBtn.addEventListener("click", () => {
   fetch("/feedback", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ rating: parseInt(rating), comment })
-  }).then(() => feedbackModal.style.display = "none");
+    body: JSON.stringify({ rating: parseInt(rating), comment }),
+  }).then(() => (feedbackModal.style.display = "none"));
 });
 
 micBtn.addEventListener("click", () => {
@@ -267,7 +279,7 @@ langSelect.addEventListener("change", () => {
   }
 });
 
-suggestions.forEach(suggestion => {
+suggestions.forEach((suggestion) => {
   suggestion.addEventListener("click", () => {
     userMessage = suggestion.querySelector(".text").innerText;
     handleOutgoingChat();
