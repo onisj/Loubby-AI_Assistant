@@ -1,6 +1,8 @@
 # Loubby Navigation Assistant
 
-A two-way voice/video AI assistant built with FastAPI, WebRTC, and Google Cloud APIs, featuring a realistic animated avatar via a pre-recorded video clip with enhanced multilingual support for over 100 languages.
+# Loubby Navigation Assistant
+
+A two-way voice/video AI assistant built with FastAPI, WebRTC, and Google Cloud APIs, featuring a realistic animated avatar via a pre-recorded video clip with support for over 100 languages.
 
 ## Features
 - **Text Chat:** Query via `/chat` endpoint with support for over 100 languages (e.g., English, Igbo, German, Japanese, Hindi, Arabic).
@@ -20,6 +22,7 @@ A two-way voice/video AI assistant built with FastAPI, WebRTC, and Google Cloud 
    ```bash
    git clone <repository-url>
    cd loubby-navigation-assistant
+<<<<<<< HEAD
 
 2. **Create Conda Environment:**
    ```bash

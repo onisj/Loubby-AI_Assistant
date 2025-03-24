@@ -1,91 +1,420 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Loubby AI Voice/Video Chat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loubby AI Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        #avatar-container { 
-            width: 200px; 
-            height: 200px; 
-            margin: 0 auto; 
-        }
-        #video-player { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
-        #status { 
-            font-size: 18px; 
-            text-align: center; 
-        }
+        /* Unchanged styles from previous version */
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: #0f1419; color: #ffffff; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+        #app-container { width: 80%; max-width: 800px; background: #1c2526; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); overflow: hidden; display: flex; flex-direction: column; height: 85vh; }
+        header { padding: 15px 20px; background: #1c2526; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2e3839; }
+        header h1 { margin: 0; font-size: 20px; font-weight: 600; color: #ffffff; }
+        #header-controls { display: flex; gap: 10px; }
+        #lang-select, #feedback-btn { padding: 6px 12px; border-radius: 4px; background: #2e3839; color: #ffffff; border: none; outline: none; cursor: pointer; font-size: 14px; font-weight: 500; }
+        #feedback-btn:hover, #lang-select:hover { background: #3a4647; }
+        #chat-container { flex: 1; padding: 20px; overflow-y: auto; }
+        .chat-message { display: flex; margin: 10px 0; animation: fadeIn 0.3s ease-in; }
+        .chat-message.user { justify-content: flex-end; }
+        .chat-message.ai { justify-content: flex-start; }
+        .message-bubble { max-width: 70%; padding: 10px 15px; border-radius: 6px; font-size: 16px; font-weight: 400; line-height: 1.5; background: #2e3839; color: #ffffff; }
+        .ai .message-bubble img { width: 24px; height: 24px; border-radius: 50%; margin-right: 10px; vertical-align: middle; }
+        #input-container { padding: 15px 20px; background: #1c2526; border-top: 1px solid #2e3839; display: flex; align-items: center; gap: 8px; }
+        #chat-input { flex: 1; padding: 10px; border: none; border-radius: 4px; background: #2e3839; color: #ffffff; outline: none; font-size: 16px; font-weight: 400; height: 36px; }
+        #chat-input::placeholder { color: #8b9ba3; }
+        .icon-btn { width: 36px; height: 36px; border-radius: 50%; background: #2e3839; color: #ffffff; border: none; cursor: pointer; font-size: 18px; transition: background 0.3s; }
+        .icon-btn:hover { background: #3a4647; }
+        .icon-btn.active { background: #ff4500; }
+        #status { text-align: center; font-size: 14px; font-weight: 400; color: #8b9ba3; margin: 10px 0; }
+        #video-container { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; width: 400px; height: 300px; overflow: hidden; }
+        #avatar-video { width: 100%; height: 100%; border-radius: 8px; border: 1px solid #2e3839; object-fit: cover; }
+        #feedback-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); justify-content: center; align-items: center; z-index: 2000; }
+        #feedback-form { background: #1c2526; padding: 20px; border-radius: 8px; width: 300px; text-align: center; }
+        #feedback-form h3 { color: #ffffff; font-size: 18px; font-weight: 500; margin-top: 0; }
+        #rating { width: 100%; padding: 8px; margin: 10px 0; background: #2e3839; color: #ffffff; border: none; border-radius: 4px; font-size: 14px; font-weight: 400; }
+        #comment { width: 100%; padding: 8px; margin: 10px 0; background: #2e3839; color: #ffffff; border: none; border-radius: 4px; resize: none; font-size: 14px; font-weight: 400; }
+        #submit-feedback { padding: 8px 16px; background: #2e3839; color: #ffffff; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 500; }
+        #submit-feedback:hover { background: #3a4647; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
-    <h1>Loubby AI Voice/Video Chat</h1>
-    <div id="avatar-container">
-        <video id="video-player" loop muted></video>
+    <div id="app-container">
+        <header>
+            <h1>Loubby AI Chat</h1>
+            <div id="header-controls">
+                <select id="lang-select">
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="it">Italian</option>
+                    <option value="pt">Portuguese</option>
+                    <option value="nl">Dutch</option>
+                    <option value="ru">Russian</option>
+                    <option value="zh-CN">Chinese (Simplified)</option>
+                    <option value="zh-TW">Chinese (Traditional)</option>
+                    <option value="ja">Japanese</option>
+                    <option value="ko">Korean</option>
+                    <option value="ar">Arabic</option>
+                    <option value="hi">Hindi</option>
+                    <!-- Add more as needed, using codes from supported languages -->
+                </select>
+                <button id="feedback-btn">Feedback</button>
+            </div>
+        </header>
+        <div id="chat-container"></div>
+        <p id="status">Connecting...</p>
+        <div id="input-container">
+            <input id="chat-input" type="text" placeholder="Ask Loubby anything...">
+            <button id="send-btn" class="icon-btn">➤</button>
+            <button id="mic-btn" class="icon-btn">🎤</button>
+            <button id="video-btn" class="icon-btn">🎥</button>
+        </div>
     </div>
-    <audio id="audioOutput" autoplay></audio>
-    <p id="status">Connecting...</p>
+    <div id="video-container">
+        <video id="avatar-video" muted>
+            <source src="/static/ai_avatar.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="feedback-modal">
+        <div id="feedback-form">
+            <h3>Rate Your Experience</h3>
+            <select id="rating">
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Good</option>
+                <option value="4">4 - Very Good</option>
+                <option value="5">5 - Excellent</option>
+            </select>
+            <textarea id="comment" rows="4" placeholder="Optional feedback..."></textarea>
+            <button id="submit-feedback">Submit</button>
+        </div>
+    </div>
     <script>
-        const ws = new WebSocket('ws://localhost:8001/ws');
-        const audioOutput = document.getElementById('audioOutput');
+        let ws = null;
+        const chatContainer = document.getElementById('chat-container');
+        const chatInput = document.getElementById('chat-input');
+        const langSelect = document.getElementById('lang-select');
+        const sendBtn = document.getElementById('send-btn');
+        const micBtn = document.getElementById('mic-btn');
+        const videoBtn = document.getElementById('video-btn');
+        const feedbackBtn = document.getElementById('feedback-btn');
         const status = document.getElementById('status');
-        const videoPlayer = document.getElementById('video-player');
-        let pc;
+        const videoContainer = document.getElementById('video-container');
+        const avatarVideo = document.getElementById('avatar-video');
+        const feedbackModal = document.getElementById('feedback-modal');
+        const submitFeedbackBtn = document.getElementById('submit-feedback');
+        let isMicActive = false;
+        let isVideoActive = false;
+        let isSpeaking = false;
+        let recognition = null;
+        const synth = window.speechSynthesis;
+        let reconnectTimeout = null;
 
-        ws.onopen = () => {
-            status.textContent = "Connected! Starting audio...";
-            startAudio();
-        };
-
-        ws.onmessage = async (event) => {
-            const data = JSON.parse(event.data);
-            if (data.sdp) {
-                await pc.setRemoteDescription(new RTCSessionDescription(data));
-            } else if (data.ice) {
-                await pc.addIceCandidate(new RTCIceCandidate(data.ice));
+        function connectWebSocket() {
+            if (ws && ws.readyState !== WebSocket.CLOSED) {
+                console.log("WebSocket already open, state:", ws.readyState);
+                return;
             }
-        };
+            ws = new WebSocket('ws://localhost:8001/ws');
+            ws.onopen = onWebSocketOpen;
+            ws.onmessage = onWebSocketMessage;
+            ws.onerror = onWebSocketError;
+            ws.onclose = onWebSocketClose;
+            console.log("Attempting WebSocket connection...");
+        }
 
-        async function startAudio() {
-            pc = new RTCPeerConnection();
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            stream.getTracks().forEach(track => pc.addTrack(track, stream));
+        function initializeRecognition() {
+            if (recognition) recognition.stop();
+            recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            recognition.maxAlternatives = 3;
+            recognition.lang = langSelect.value;
+            console.log("Speech recognition initialized with language:", recognition.lang);
 
-            pc.ontrack = (event) => {
-                audioOutput.srcObject = event.streams[0];
-                status.textContent = "AI is speaking...";
-                videoPlayer.src = '/static/avatar_clip.mp4';
-                videoPlayer.play();
-                audioOutput.onplay = () => videoPlayer.currentTime = 0; // Sync video start
-                audioOutput.onended = () => {
-                    videoPlayer.pause();
-                    videoPlayer.currentTime = 0;
-                    status.textContent = "Connected! Starting audio...";
-                };
+            recognition.onstart = () => {
+                status.textContent = "Listening...";
+                console.log("Recognition started with lang:", recognition.lang);
             };
 
-            pc.onicecandidate = (event) => {
-                if (event.candidate) {
-                    ws.send(JSON.stringify({ ice: event.candidate }));
+            recognition.onresult = (event) => {
+                const result = event.results[event.results.length - 1];
+                const query = result[0].transcript;
+                console.log("Recognized speech:", query, "Confidence:", result[0].confidence);
+                if (result.isFinal && !isSpeaking) {
+                    chatContainer.innerHTML += `
+                        <div class="chat-message user">
+                            <div class="message-bubble"><strong>You:</strong> ${query}</div>
+                        </div>`;
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                    sendQuery(query, langSelect.value);
                 }
             };
 
-            const offer = await pc.createOffer();
-            await pc.setLocalDescription(offer);
-            ws.send(JSON.stringify({ sdp: offer.sdp, type: offer.type }));
+            recognition.onerror = (event) => {
+                console.error("Speech recognition error:", event.error);
+                status.textContent = `Error: ${event.error} - please try again`;
+                if (event.error === "no-speech" || event.error === "aborted") {
+                    if (isMicActive || isVideoActive) {
+                        setTimeout(() => recognition.start(), 2000);
+                    }
+                } else if (event.error === "language-not-supported") {
+                    status.textContent = "Error: Selected language not supported by speech recognition";
+                } else {
+                    isMicActive = false;
+                    isVideoActive = false;
+                    micBtn.classList.remove('active');
+                    videoBtn.classList.remove('active');
+                    videoContainer.style.display = 'none';
+                    synth.cancel();
+                }
+            };
 
-            fetch('http://localhost:8001/offer', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ sdp: offer.sdp, type: offer.type })
-            }).then(res => res.json()).then(data => {
-                pc.setRemoteDescription(new RTCSessionDescription(data));
-            });
+            recognition.onend = () => {
+                console.log("Recognition ended");
+                if ((isMicActive || isVideoActive) && !isSpeaking) {
+                    setTimeout(() => recognition.start(), 2000);
+                } else {
+                    status.textContent = "Connected! Speak or type to Loubby.";
+                }
+            };
         }
 
-        ws.onerror = (error) => status.textContent = "Error: " + error.message;
-        ws.onclose = () => status.textContent = "Disconnected.";
+        function sendQuery(query, lang) {
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send(`${query}|${lang}`);
+                console.log("Sent to WebSocket:", query, "Language:", lang);
+            } else {
+                console.log("WebSocket not open, falling back to HTTP...");
+                fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query, lang, include_audio: false })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.answer) {
+                        displayResponse(data.answer);
+                    } else {
+                        status.textContent = "Error: No response received from HTTP";
+                        console.log("HTTP response missing answer:", data);
+                    }
+                })
+                .catch(err => {
+                    status.textContent = "Error: HTTP request failed";
+                    console.error("HTTP fetch error:", err);
+                });
+                connectWebSocket();
+            }
+        }
+
+        function displayResponse(response) {
+            chatContainer.innerHTML += `
+                <div class="chat-message ai">
+                    <div class="message-bubble">
+                        <img src="/static/avatar_icon.png" alt="Loubby">
+                        ${response}
+                    </div>
+                </div>`;
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            if (isMicActive || isVideoActive) {
+                speakResponse(response);
+            }
+        }
+
+        connectWebSocket();
+
+        langSelect.onchange = () => {
+            if (recognition) {
+                recognition.lang = langSelect.value;
+                console.log("Language updated to:", recognition.lang);
+                if (isMicActive || isVideoActive) {
+                    recognition.stop();
+                    initializeRecognition();
+                    recognition.start();
+                }
+            }
+        };
+
+        function onWebSocketOpen() {
+            status.textContent = "Connected! Speak or type to Loubby.";
+            console.log("WebSocket connected, state:", ws.readyState);
+            if ((isMicActive || isVideoActive) && !recognition) {
+                initializeRecognition();
+                recognition.start();
+            }
+        }
+
+        function onWebSocketMessage(event) {
+            console.log("Received message:", event.data);
+            if (event.data.startsWith("Error:")) {
+                status.textContent = event.data;
+            } else if (event.data) {
+                displayResponse(event.data);
+            }
+        }
+
+        function speakResponse(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 1.0;
+            utterance.pitch = 1;
+            const voices = synth.getVoices();
+            const maleVoice = voices.find(voice => voice.name.includes('Alex') || voice.name.includes('Daniel') || voice.name.toLowerCase().includes('male')) || voices[0];
+            utterance.voice = maleVoice;
+            console.log("Selected voice:", maleVoice.name);
+            status.textContent = "Loubby is responding...";
+            isSpeaking = true;
+            if (recognition) recognition.stop();
+            utterance.onend = () => {
+                isSpeaking = false;
+                status.textContent = (isMicActive || isVideoActive) ? "Listening..." : "Connected! Speak or type to Loubby.";
+                if (isVideoActive) {
+                    avatarVideo.pause();
+                    console.log("Audio ended, video paused");
+                }
+                if (isMicActive || isVideoActive) {
+                    setTimeout(() => recognition.start(), 2000);
+                }
+            };
+            synth.speak(utterance);
+            if (isVideoActive) {
+                avatarVideo.loop = true;
+                avatarVideo.play().catch(err => console.error("Video play error:", err));
+            }
+        }
+
+        sendBtn.onclick = () => {
+            const query = chatInput.value.trim();
+            const lang = langSelect.value;
+            if (query && !isMicActive && !isVideoActive) {
+                chatContainer.innerHTML += `
+                    <div class="chat-message user">
+                        <div class="message-bubble"><strong>You:</strong> ${query}</div>
+                    </div>`;
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+                sendQuery(query, lang);
+                chatInput.value = '';
+            }
+        };
+
+        micBtn.onclick = () => {
+            if (!isMicActive && !isVideoActive) {
+                isMicActive = true;
+                micBtn.classList.add('active');
+                initializeRecognition();
+                connectWebSocket();
+                recognition.start();
+                status.textContent = "Listening...";
+                console.log("Mic activated");
+            } else if (isVideoActive) {
+                isVideoActive = false;
+                videoBtn.classList.remove('active');
+                videoContainer.style.display = 'none';
+                avatarVideo.pause();
+                avatarVideo.currentTime = 0;
+                synth.cancel();
+                isMicActive = true;
+                micBtn.classList.add('active');
+                initializeRecognition();
+                recognition.start();
+                status.textContent = "Listening...";
+                console.log("Switched to mic");
+            } else {
+                isMicActive = false;
+                micBtn.classList.remove('active');
+                recognition.stop();
+                synth.cancel();
+                status.textContent = "Connected! Speak or type to Loubby.";
+                console.log("Mic deactivated");
+            }
+        };
+
+        videoBtn.onclick = () => {
+            if (!isVideoActive && !isMicActive) {
+                isVideoActive = true;
+                videoBtn.classList.add('active');
+                videoContainer.style.display = 'block';
+                avatarVideo.load();
+                initializeRecognition();
+                connectWebSocket();
+                recognition.start();
+                status.textContent = "Listening...";
+                console.log("Video activated");
+            } else if (isMicActive) {
+                isMicActive = false;
+                micBtn.classList.remove('active');
+                isVideoActive = true;
+                videoBtn.classList.add('active');
+                videoContainer.style.display = 'block';
+                avatarVideo.load();
+                initializeRecognition();
+                recognition.start();
+                status.textContent = "Listening...";
+                console.log("Switched to video");
+            } else {
+                isVideoActive = false;
+                videoBtn.classList.remove('active');
+                videoContainer.style.display = 'none';
+                avatarVideo.pause();
+                avatarVideo.currentTime = 0;
+                synth.cancel();
+                recognition.stop();
+                status.textContent = "Connected! Speak or type to Loubby.";
+                console.log("Video deactivated");
+            }
+        };
+
+        feedbackBtn.onclick = () => { feedbackModal.style.display = 'flex'; };
+        submitFeedbackBtn.onclick = () => {
+            const rating = document.getElementById('rating').value;
+            const comment = document.getElementById('comment').value;
+            fetch('/feedback', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ rating: parseInt(rating), comment })
+            })
+            .then(res => res.json())
+            .then(data => {
+                feedbackModal.style.display = 'none';
+                status.textContent = "Thank you for your feedback!";
+                setTimeout(() => status.textContent = (isMicActive || isVideoActive) ? "Listening..." : "Connected! Speak or type to Loubby.", 2000);
+            });
+        };
+
+        function onWebSocketError(error) {
+            status.textContent = "Error: WebSocket failed";
+            console.error("WebSocket error:", error);
+            clearTimeout(reconnectTimeout);
+            reconnectTimeout = setTimeout(connectWebSocket, 2000);
+        }
+
+        function onWebSocketClose() {
+            console.log("WebSocket closed");
+            if (isMicActive || isVideoActive) {
+                status.textContent = "Reconnecting...";
+                clearTimeout(reconnectTimeout);
+                reconnectTimeout = setTimeout(connectWebSocket, 2000);
+            } else {
+                status.textContent = "Connected! Speak or type to Loubby.";
+            }
+        }
+
+        navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+            .then(stream => console.log("Mic permissions granted"))
+            .catch(err => {
+                status.textContent = "Media error: " + err;
+                console.error("Media error:", err);
+            });
+
+        avatarVideo.addEventListener('error', (e) => console.error("Video load error:", e));
+
+        window.speechSynthesis.onvoiceschanged = () => {
+            const voices = synth.getVoices();
+            console.log("Available voices:", voices.map(v => v.name));
+        };
     </script>
 </body>
 </html>
