@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+numpy
+requests
+python-dotenv
+langchain
+langchain-community
+langgraph
+langchain-groq
+pinecone
+huggingface_hub
+langchain-pinecone
+pinecone-client
+deep-translator
+pymongo
+
