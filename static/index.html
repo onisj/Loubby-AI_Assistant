@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Loubby AI Navigator - RAG</h1>
+    <select id="language">
+        <option value="en-US">English (US)</option>
+        <option value="es-ES">Spanish (Spain)</option>
+        <option value="fr-FR">French</option>
+        <!-- Add more based on Vosk models and eSpeak voices -->
+    </select>
+    <input id="query" type="text" placeholder="Ask me anything!">
+    <button onclick="ask()">Ask</button>
+    <p id="response"></p>
+
+    <button onclick="startVideo()">Start Video Chat</button>
+    <button onclick="startAudio()">Start Audio Stream</button>
+    <video id="localVideo" autoplay playsinline muted></video>
+    <video id="remoteVideo" autoplay playsinline></video>
+
+    <script>
+        let pc;
+        let localStream;
+        let audioWs;
+
+        async function startVideo() {
+            try {
+                localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                document.getElementById("localVideo").srcObject = localStream;
+
+                const ws = new WebSocket("ws://localhost:8000/video_stream");
+                pc = new RTCPeerConnection();
+
+                localStream.getTracks().forEach(track => pc.addTrack(track, localStream));
+
+                pc.ontrack = (event) => {
+                    const remoteVideo = document.getElementById("remoteVideo");
+                    if (!remoteVideo.srcObject) {
+                        remoteVideo.srcObject = event.streams[0];
+                    }
+                };
+
+                ws.onmessage = async (event) => {
+                    const data = JSON.parse(event.data);
+                    if (data.sdp) {
+                        await pc.setRemoteDescription(new RTCSessionDescription(data));
+                        const answer = await pc.createAnswer();
+                        await pc.setLocalDescription(answer);
+                        ws.send(JSON.stringify({ sdp: answer.sdp, type: answer.type }));
+                    }
+                };
+
+                ws.onopen = () => {
+                    const query = document.getElementById("query").value || "Hello";
+                    const language = document.getElementById("language").value;
+                    ws.send(JSON.stringify({ query: query, language: language }));
+                    console.log("Video WebSocket connected");
+                };
+                ws.onerror = (error) => console.error("Video WebSocket error:", error);
+                ws.onclose = () => console.log("Video WebSocket closed");
+            } catch (e) {
+                console.error("Video error:", e);
+            }
+        }
+
+        async function startAudio() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                console.log("Microphone access granted");  // Debug
+                const recorder = new MediaRecorder(stream);
+                audioWs = new WebSocket("ws://localhost:8000/audio_stream");
+        
+                recorder.ondataavailable = (event) => {
+                    if (event.data.size > 0) {
+                        console.log("Audio data captured, size:", event.data.size);  // Debug
+                        const language = document.getElementById("language").value;
+                        const blobToBase64 = (blob) => new Promise((resolve) => {
+                            const reader = new FileReader();
+                            reader.onloadend = () => resolve(reader.result.split(",")[1]);
+                            reader.readAsDataURL(blob);
+                        });
+                        blobToBase64(event.data).then(base64 => {
+                            audioWs.send(JSON.stringify({ audio: base64, language: language }));
+                        });
+                    }
+                };
+                recorder.onstop = () => stream.getTracks().forEach(track => track.stop());
+                recorder.start(1000);
+                console.log("Recorder started");  // Debug
+        
+                audioWs.onmessage = (event) => {
+                    const audioUrl = URL.createObjectURL(event.data);
+                    new Audio(audioUrl).play();
+                };
+                audioWs.onopen = () => console.log("Audio WebSocket connected");
+                audioWs.onerror = (error) => console.error("Audio WebSocket error:", error);
+                audioWs.onclose = () => console.log("Audio WebSocket closed");
+            } catch (e) {
+                console.error("Audio error:", e);
+            }
+        }
+
+        async function ask() {
+            try {
+                const query = document.getElementById("query").value;
+                const language = document.getElementById("language").value;
+                console.log("Sending query:", query, "Language:", language);  // Debug
+                const res = await fetch("/chat", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({ text: query, language: language })
+                });
+                if (!res.ok) {
+                    const errorData = await res.json();
+                    console.error("Chat error:", errorData);  // Debug
+                    throw new Error(`Server error: ${res.status} - ${errorData.detail}`);
+                }
+                const data = await res.json();
+                console.log("Chat response:", data);  // Debug
+                document.getElementById("response").textContent = data.response;
+                lastResponse = data.response;
+        
+                const audioRes = await fetch(`/tts/${encodeURIComponent(data.response)}?language=${language}`);
+                if (!audioRes.ok) {
+                    const audioError = await audioRes.json();
+                    console.error("TTS error:", audioError);  // Debug
+                    throw new Error(`TTS error: ${audioRes.status}`);
+                }
+                const audioBlob = await audioRes.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+                new Audio(audioUrl).play();
+                document.getElementById("feedback-form").style.display = "block";
+            } catch (e) {
+                console.error("Ask error:", e);
+                document.getElementById("response").textContent = "Error: " + e.message;
+            }
+        }
+
+        window.onunload = () => {
+            if (pc) pc.close();
+            if (localStream) localStream.getTracks().forEach(track => track.stop());
+            if (audioWs) audioWs.close();
+        };
+    </script>
+</body>
+</html>
