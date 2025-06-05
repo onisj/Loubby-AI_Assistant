@@ -9,7 +9,7 @@ load_dotenv()
 default_conn_params = {
     "dbname": "postgres",
     "user": "postgres",
-    "password": os.getenv("POSTGRES_PASSWORD", "isinmiboie16#_"),
+    "password": os.getenv("POSTGRES_PASSWORD", "your_password"),
     "host": "localhost",
     "port": "5432"
 }
